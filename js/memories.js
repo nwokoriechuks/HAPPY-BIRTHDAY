@@ -1,166 +1,98 @@
-const container =
-    document.getElementById("memoryContainer");
+const container = document.getElementById("memoryContainer");
+const continueBtn = document.getElementById("continueBtn");
 
-const continueBtn =
-    document.getElementById("continueBtn");
-
-const lightbox =
-    document.getElementById("lightbox");
-
-const lightboxContent =
-    document.getElementById("lightboxContent");
-
-const closeLightbox =
-    document.getElementById("closeLightbox");
+const lightbox = document.getElementById("lightbox");
+const lightboxContent = document.getElementById("lightboxContent");
+const closeLightbox = document.getElementById("closeLightbox");
 
 
-// ==========================================
-// MEMORIES
-// ==========================================
+/* =========================================================
+   MEMORY COLLECTION
+========================================================= */
 
 const memories = [
+    { type: "image", src: "ekene/adaarh1.jpg" },
+    { type: "image", src: "ekene/adaarh5.jpg" },
+    { type: "image", src: "ekene/adaarh6.jpg" },
+    { type: "image", src: "ekene/adaarh8.jpg" },
+    { type: "image", src: "ekene/adaarh13.jpg" },
+    { type: "image", src: "ekene/adaarh11.jpg" },
+    { type: "image", src: "ekene/adaarh17.jpg" },
+    { type: "image", src: "ekene/adaarh14.jpg" },
+    { type: "image", src: "ekene/adaarh12.jpg" },
+    { type: "image", src: "ekene/adaarh20.jpg" },
+    { type: "image", src: "ekene/adaarh18.jpg" },
+    { type: "image", src: "ekene/adaarh16.png" },
+    { type: "image", src: "ekene/adaarh23.jpg" },
+    { type: "image", src: "ekene/adaarh22.jpg" },
 
-     {
-        type: "image",
-        src: "ekene/adaarh1.jpg"
-    },
-
-   {
-        type: "image",
-        src: "ekene/adaarh5.jpg"
-    },
-
-    {
-        type: "image",
-        src: "ekene/adaarh6.jpg"
-    },
-
-    {
-        type: "image",
-        src: "ekene/adaarh8.jpg"
-    },
-
-       {
-        type: "image",
-        src: "ekene/adaarh13.jpg"
-    },
-       {
-        type: "image",
-        src: "ekene/adaarh11.jpg"
-    },
-       {
-        type: "image",
-        src: "ekene/adaarh17.jpg"
-    },
-       {
-        type: "image",
-        src: "ekene/adaarh14.jpg"
-    },
-       {
-        type: "image",
-        src: "ekene/adaarh12.jpg"
-    },
-       {
-        type: "image",
-        src: "ekene/adaarh20.jpg"
-    },
-       {
-        type: "image",
-        src: "ekene/adaarh18.jpg"
-    },
-       {
-        type: "image",
-        src: "ekene/adaarh16.png"
-    },
-       {
-        type: "image",
-        src: "ekene/adaarh23.jpg"
-    },
-       {
-        type: "image",
-        src: "ekene/adaarh22.jpg"
-    },
-
-    {
-        type: "video",
-        src: "ekene/adaarhvid1.mp4"
-    },
-
-
-      {
-        type: "video",
-        src: "ekene/adaarhvid7.mp4"
-    },
-        {
-        type: "video",
-        src: "ekene/adaarhvid6.mp4"
-    },
-        {
-        type: "video",
-        src: "ekene/adaarhvid4.mp4"
-    },
-        {
-        type: "video",
-        src: "ekene/adaarhvid2.mp4"
-    },
-        {
-        type: "video",
-        src: "ekene/adaarhvid8.mp4"
-    },
-        {
-        type: "video",
-        src: "ekene/adaarhvid13.mp4"
-    },
-        {
-        type: "video",
-        src: "ekene/adaarhvid16.mp4"
-    },
-        {
-        type: "video",
-        src: "ekene/adaarhvid12.mp4"
-    },
-        {
-        type: "video",
-        src: "ekene/adaarhvid9.mp4"
-    },
-        {
-        type: "video",
-        src: "ekene/adaarhvid17.mp4"
-    },
-        {
-        type: "video",
-        src: "ekene/adaarhvid18.mp4"
-    },
+    { type: "video", src: "ekene/adaarhvid1.mp4" },
+    { type: "video", src: "ekene/adaarhvid7.mp4" },
+    { type: "video", src: "ekene/adaarhvid6.mp4" },
+    { type: "video", src: "ekene/adaarhvid4.mp4" },
+    { type: "video", src: "ekene/adaarhvid2.mp4" },
+    { type: "video", src: "ekene/adaarhvid8.mp4" },
+    { type: "video", src: "ekene/adaarhvid13.mp4" },
+    { type: "video", src: "ekene/adaarhvid16.mp4" },
+    { type: "video", src: "ekene/adaarhvid12.mp4" },
+    { type: "video", src: "ekene/adaarhvid9.mp4" },
+    { type: "video", src: "ekene/adaarhvid17.mp4" },
+    { type: "video", src: "ekene/adaarhvid18.mp4" }
 ];
 
 
-// ==========================================
-// RANDOM
-// ==========================================
+/* =========================================================
+   RANDOM NUMBER
+========================================================= */
 
 function random(min, max) {
-
-    return Math.random() *
-        (max - min) +
-        min;
-
+    return Math.random() * (max - min) + min;
 }
 
 
-// ==========================================
-// CREATE MEMORY
-// ==========================================
+/* =========================================================
+   GET RESPONSIVE CARD SIZE
+========================================================= */
+
+function getMemoryWidth() {
+
+    const screenWidth = window.innerWidth;
+
+    /* Phone */
+    if (screenWidth <= 600) {
+        return random(135, 170);
+    }
+
+    /* Tablet */
+    if (screenWidth <= 900) {
+        return random(210, 280);
+    }
+
+    /* Normal laptop / desktop */
+    if (screenWidth <= 1400) {
+        return random(280, 350);
+    }
+
+    /* Large desktop */
+    return random(320, 390);
+}
+
+
+/* =========================================================
+   CREATE MEMORY
+========================================================= */
 
 function createMemory() {
 
     const selected =
         memories[
             Math.floor(
-                Math.random() *
-                memories.length
+                Math.random() * memories.length
             )
         ];
 
+
+    /* Create card */
 
     const card =
         document.createElement("div");
@@ -168,27 +100,32 @@ function createMemory() {
     card.classList.add("memory");
 
 
-    // --------------------------------------
-    // Position
-    // --------------------------------------
+    /* =====================================================
+       CARD SIZE
+    ===================================================== */
 
-   const x = random(3, 72);
-const y = random(12, 68);
+    const width = getMemoryWidth();
+
+    card.style.width =
+        `${width}px`;
 
 
-    const width =
-        window.innerWidth < 600
-            ? random(125, 165)
-            : random(180, 270);
-
+    /* =====================================================
+       RANDOM ROTATION
+    ===================================================== */
 
     const rotation =
         random(-14, 14);
 
+    card.style.setProperty(
+        "--rotation",
+        `${rotation}deg`
+    );
 
-    // --------------------------------------
-    // Random spawn direction
-    // --------------------------------------
+
+    /* =====================================================
+       RANDOM SPAWN DIRECTION
+    ===================================================== */
 
     const directions = [
         "spawn-left",
@@ -196,7 +133,6 @@ const y = random(12, 68);
         "spawn-top",
         "spawn-bottom"
     ];
-
 
     const direction =
         directions[
@@ -206,28 +142,12 @@ const y = random(12, 68);
             )
         ];
 
-
     card.classList.add(direction);
 
 
-    card.style.left =
-        `${x}%`;
-
-    card.style.top =
-        `${y}%`;
-
-    card.style.width =
-        `${width}px`;
-
-    card.style.setProperty(
-        "--rotation",
-        `${rotation}deg`
-    );
-
-
-    // --------------------------------------
-    // IMAGE
-    // --------------------------------------
+    /* =====================================================
+       CREATE IMAGE
+    ===================================================== */
 
     if (selected.type === "image") {
 
@@ -240,43 +160,77 @@ const y = random(12, 68);
         image.alt =
             "Birthday memory";
 
-        card.appendChild(image);
+        image.loading =
+            "eager";
 
+        card.appendChild(image);
     }
 
 
-    // --------------------------------------
-    // VIDEO
-    // --------------------------------------
+    /* =====================================================
+       CREATE VIDEO
+    ===================================================== */
 
- if (selected.type === "video") {
-    const video = document.createElement("video");
+    if (selected.type === "video") {
 
-    video.src = selected.src;
+        const video =
+            document.createElement("video");
 
-    // Autoplay settings
-    video.autoplay = true;
-    video.muted = true;
-    video.defaultMuted = true;
-    video.playsInline = true;
-    video.loop = true;
+        video.src =
+            selected.src;
 
-    // Don't show controls on the floating memory
-    video.controls = false;
+        /*
+         * These are essential for
+         * autoplay on modern browsers.
+         */
 
-    // Add to the card first
-    card.appendChild(video);
+        video.autoplay = true;
 
-    // Force the browser to attempt playback
-    video.play().catch((error) => {
-        console.log("Autoplay blocked:", error);
-    });
-}
+        video.muted = true;
+
+        video.defaultMuted = true;
+
+        video.playsInline = true;
+
+        video.loop = true;
+
+        video.controls = false;
+
+        video.setAttribute(
+            "autoplay",
+            ""
+        );
+
+        video.setAttribute(
+            "muted",
+            ""
+        );
+
+        video.setAttribute(
+            "playsinline",
+            ""
+        );
+
+        card.appendChild(video);
+
+        /*
+         * Explicitly start playback.
+         */
+
+        video.play().catch((error) => {
+
+            console.log(
+                "Autoplay blocked:",
+                error
+            );
+
+        });
+    }
 
 
-    // --------------------------------------
-    // Label
-    // --------------------------------------
+    /* =====================================================
+       LABEL
+    ===================================================== */
 
     const label =
         document.createElement("div");
@@ -291,51 +245,195 @@ const y = random(12, 68);
     card.appendChild(label);
 
 
-    // --------------------------------------
-    // Click
-    // --------------------------------------
+    /* =====================================================
+       CLICK → LIGHTBOX
+    ===================================================== */
 
     card.addEventListener(
         "click",
         () => {
-
             openLightbox(selected);
-
         }
     );
 
 
+    /* =====================================================
+       ADD CARD TO DOM FIRST
+       SO WE CAN MEASURE IT
+    ===================================================== */
+
     container.appendChild(card);
 
 
-    // --------------------------------------
-    // Remove oldest
-    // --------------------------------------
+    /* =====================================================
+       SAFE VIEWPORT POSITIONING
+    ===================================================== */
+
+    positionMemorySafely(card);
+
+
+    /* =====================================================
+       LIMIT NUMBER OF VISIBLE CARDS
+    ===================================================== */
 
     const all =
         container.querySelectorAll(
             ".memory"
         );
 
+    /*
+     * 10 large cards is enough to
+     * create controlled chaos without
+     * completely covering the screen.
+     */
 
     if (all.length > 10) {
 
         all[0].remove();
-
     }
-
 }
 
 
-// ==========================================
-// LIGHTBOX
-// ==========================================
+/* =========================================================
+   SAFE MEMORY POSITIONING
+========================================================= */
+
+function positionMemorySafely(card) {
+
+    /*
+     * Wait one frame so the browser
+     * has calculated card dimensions.
+     */
+
+    requestAnimationFrame(() => {
+
+        const cardWidth =
+            card.offsetWidth;
+
+        const cardHeight =
+            card.offsetHeight;
+
+
+        const viewportWidth =
+            window.innerWidth;
+
+        const viewportHeight =
+            window.innerHeight;
+
+
+        /*
+         * Keep a safe margin around
+         * the screen edges.
+         */
+
+        const sidePadding =
+            viewportWidth <= 600
+                ? 8
+                : 18;
+
+
+        /*
+         * Reserve space for the
+         * Continue button.
+         */
+
+        const bottomReserved =
+            viewportWidth <= 600
+                ? 85
+                : 105;
+
+
+        /*
+         * Calculate the maximum
+         * safe coordinates.
+         */
+
+        const maxLeft =
+            Math.max(
+                sidePadding,
+                viewportWidth -
+                    cardWidth -
+                    sidePadding
+            );
+
+
+        const maxTop =
+            Math.max(
+                sidePadding,
+                viewportHeight -
+                    cardHeight -
+                    bottomReserved
+            );
+
+
+        /*
+         * Keep the center area available
+         * while still allowing cards to
+         * appear around it.
+         */
+
+        let left =
+            random(
+                sidePadding,
+                maxLeft
+            );
+
+
+        let top =
+            random(
+                sidePadding,
+                maxTop
+            );
+
+
+        /*
+         * Prevent cards from spawning
+         * directly over the Continue button.
+         */
+
+        if (
+            top + cardHeight >
+            viewportHeight -
+            bottomReserved
+        ) {
+
+            top =
+                Math.max(
+                    sidePadding,
+                    viewportHeight -
+                    cardHeight -
+                    bottomReserved
+                );
+        }
+
+
+        /*
+         * Set final position in pixels.
+         *
+         * This is much more reliable
+         * than percentage positioning
+         * for large cards.
+         */
+
+        card.style.left =
+            `${left}px`;
+
+        card.style.top =
+            `${top}px`;
+    });
+}
+
+
+/* =========================================================
+   LIGHTBOX
+========================================================= */
 
 function openLightbox(memory) {
 
-    lightboxContent.innerHTML =
-        "";
+    lightboxContent.innerHTML = "";
 
+
+    /* IMAGE */
 
     if (memory.type === "image") {
 
@@ -345,36 +443,61 @@ function openLightbox(memory) {
         image.src =
             memory.src;
 
+        image.alt =
+            "Birthday memory";
+
         lightboxContent.appendChild(
             image
         );
-
     }
 
 
-   if (memory.type === "video") {
-    const video = document.createElement("video");
+    /* VIDEO */
 
-    video.src = memory.src;
+    if (memory.type === "video") {
 
-    video.controls = true;
-    video.autoplay = true;
-    video.playsInline = true;
+        const video =
+            document.createElement("video");
 
-    lightboxContent.appendChild(video);
+        video.src =
+            memory.src;
 
-    video.play().catch((error) => {
-        console.log("Lightbox autoplay blocked:", error);
-    });
-}
+        video.controls = true;
+
+        video.autoplay = true;
+
+        video.playsInline = true;
+
+        video.setAttribute(
+            "playsinline",
+            ""
+        );
+
+        lightboxContent.appendChild(
+            video
+        );
+
+
+        video.play().catch((error) => {
+
+            console.log(
+                "Lightbox autoplay blocked:",
+                error
+            );
+
+        });
+    }
 
 
     lightbox.classList.add(
         "active"
     );
-
 }
 
+
+/* =========================================================
+   CLOSE LIGHTBOX
+========================================================= */
 
 function closeLightboxFunction() {
 
@@ -382,9 +505,7 @@ function closeLightboxFunction() {
         "active"
     );
 
-    lightboxContent.innerHTML =
-        "";
-
+    lightboxContent.innerHTML = "";
 }
 
 
@@ -403,16 +524,32 @@ lightbox.addEventListener(
         ) {
 
             closeLightboxFunction();
-
         }
-
     }
 );
 
 
-// ==========================================
-// INITIAL MEMORIES
-// ==========================================
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeLightboxFunction();
+        }
+    }
+);
+
+
+/* =========================================================
+   INITIAL MEMORIES
+========================================================= */
 
 for (
     let i = 0;
@@ -422,19 +559,16 @@ for (
 
     setTimeout(
         () => {
-
             createMemory();
-
         },
         i * 650
     );
-
 }
 
 
-// ==========================================
-// CONTINUOUS SPAWNING
-// ==========================================
+/* =========================================================
+   CONTINUOUS SPAWNING
+========================================================= */
 
 const spawnInterval =
     setInterval(
@@ -447,9 +581,9 @@ const spawnInterval =
     );
 
 
-// ==========================================
-// CONTINUE
-// ==========================================
+/* =========================================================
+   CONTINUE BUTTON
+========================================================= */
 
 continueBtn.addEventListener(
     "click",
@@ -463,7 +597,6 @@ continueBtn.addEventListener(
             "page-exit"
         );
 
-
         setTimeout(
             () => {
 
@@ -473,6 +606,46 @@ continueBtn.addEventListener(
             },
             700
         );
+    }
+);
 
+
+/* =========================================================
+   REPOSITION EXISTING CARDS
+   WHEN WINDOW RESIZES
+========================================================= */
+
+let resizeTimer;
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        clearTimeout(
+            resizeTimer
+        );
+
+        resizeTimer =
+            setTimeout(
+                () => {
+
+                    const cards =
+                        container.querySelectorAll(
+                            ".memory"
+                        );
+
+                    cards.forEach(
+                        (card) => {
+
+                            positionMemorySafely(
+                                card
+                            );
+
+                        }
+                    );
+
+                },
+                150
+            );
     }
 );

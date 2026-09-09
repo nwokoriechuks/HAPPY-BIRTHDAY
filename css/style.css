@@ -3,9 +3,9 @@
 ========================================================= */
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html,
@@ -16,30 +16,18 @@ body {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    overflow-x: hidden;
+    background: #09070d;
+    color: white;
+}
+
+button,
+a {
+    font: inherit;
 }
 
 img,
 video {
     max-width: 100%;
-}
-
-button,
-a {
-    font-family: inherit;
-}
-
-
-/* =========================================================
-   GENERAL
-========================================================= */
-
-h2 {
-    text-align: center;
-}
-
-p {
-    color: white;
 }
 
 
@@ -49,9 +37,8 @@ p {
 
 .landing-page {
     width: 100%;
-    height: 100vh;
     height: 100svh;
-    min-height: 0;
+    min-height: 600px;
 
     position: relative;
     overflow: hidden;
@@ -75,37 +62,36 @@ p {
 
     background:
         radial-gradient(
-            circle at 50% 35%,
-            rgba(255, 255, 255, 0.07),
+            circle at 50% 34%,
+            rgba(255, 255, 255, 0.09),
             transparent 25%
         ),
         radial-gradient(
             circle at 15% 80%,
-            rgba(190, 100, 255, 0.10),
+            rgba(190, 100, 255, 0.11),
             transparent 30%
         ),
         radial-gradient(
             circle at 85% 20%,
-            rgba(255, 150, 190, 0.08),
+            rgba(255, 150, 190, 0.09),
             transparent 30%
         );
 }
 
 
 /* =========================================================
-   LANDING GLOW
+   LANDING GLOWS
 ========================================================= */
 
 .glow {
     position: absolute;
 
-    width: clamp(180px, 25vw, 280px);
-    height: clamp(180px, 25vw, 280px);
+    width: clamp(220px, 25vw, 420px);
+    height: clamp(220px, 25vw, 420px);
 
     border-radius: 50%;
 
-    filter: blur(clamp(70px, 10vw, 120px));
-
+    filter: blur(120px);
     opacity: 0.25;
 
     pointer-events: none;
@@ -161,7 +147,7 @@ p {
 
 
 /* =========================================================
-   LANDING PARTICLES
+   PARTICLES
 ========================================================= */
 
 .particles {
@@ -174,7 +160,7 @@ p {
 .particle {
     position: absolute;
 
-    font-size: clamp(12px, 1.5vw, 17px);
+    font-size: clamp(15px, 1.5vw, 24px);
 
     opacity: 0.4;
 
@@ -205,7 +191,7 @@ p {
 .p4 {
     top: 45%;
     left: 8%;
-    font-size: clamp(20px, 2.5vw, 28px);
+    font-size: clamp(22px, 2.5vw, 35px);
     animation-delay: 1.5s;
 }
 
@@ -224,7 +210,7 @@ p {
 .p7 {
     bottom: 12%;
     left: 40%;
-    font-size: clamp(18px, 2.2vw, 26px);
+    font-size: clamp(22px, 2.5vw, 35px);
 }
 
 .p8 {
@@ -254,35 +240,24 @@ p {
 
 
 /* =========================================================
-   LANDING MAIN CONTENT
+   LANDING CONTENT
 ========================================================= */
 
 .landing-content {
     position: relative;
-
     z-index: 10;
 
-    width: min(92%, 650px);
-
-    /*
-       Use the actual available viewport height.
-       svh is safer on mobile browsers.
-    */
-    height: 100svh;
-    min-height: 0;
+    width: min(94%, 900px);
+    height: 100%;
 
     display: flex;
-
     flex-direction: column;
 
     align-items: center;
-
     justify-content: center;
 
-    gap: 0;
-
     padding:
-        clamp(6px, 1.5vh, 15px)
+        clamp(15px, 3vh, 35px)
         0;
 }
 
@@ -293,21 +268,17 @@ p {
 
 .intro-label {
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    gap: clamp(6px, 1vw, 10px);
+    gap: 12px;
 
-    margin-bottom: clamp(2px, 0.8vh, 8px);
+    margin-bottom: clamp(10px, 1.5vh, 18px);
 
-    font-size: clamp(7px, 0.7vw, 9px);
+    font-size: clamp(8px, 0.7vw, 11px);
+    letter-spacing: clamp(3px, 0.4vw, 6px);
 
-    letter-spacing: clamp(2px, 0.35vw, 4px);
-
-    color:
-        rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.5);
 
     animation:
         fadeDown
@@ -317,8 +288,7 @@ p {
 }
 
 .label-line {
-    width: clamp(18px, 3vw, 28px);
-
+    width: clamp(25px, 3vw, 55px);
     height: 1px;
 
     background:
@@ -333,33 +303,16 @@ p {
 .portrait-area {
     position: relative;
 
-    /*
-       Scale according to HEIGHT as well as width.
-       This is the important fix for short laptops.
-    */
-    width:
-        clamp(
-            150px,
-            min(28vh, 32vw),
-            230px
-        );
-
-    height:
-        clamp(
-            150px,
-            min(28vh, 32vw),
-            230px
-        );
+    width: clamp(210px, 22vw, 320px);
+    height: clamp(210px, 22vw, 320px);
 
     display: flex;
-
     justify-content: center;
     align-items: center;
 
-    margin-bottom:
-        clamp(2px, 0.7vh, 6px);
+    margin-bottom: clamp(4px, 1vh, 12px);
 
-    flex-shrink: 1;
+    flex-shrink: 0;
 
     animation:
         portraitAppear
@@ -381,17 +334,15 @@ p {
 .portrait-glow {
     position: absolute;
 
-    width: 72%;
-    height: 72%;
+    width: clamp(155px, 17vw, 245px);
+    height: clamp(155px, 17vw, 245px);
 
     border-radius: 50%;
 
     background:
         rgba(220, 130, 255, 0.25);
 
-    filter: blur(
-        clamp(25px, 4vh, 40px)
-    );
+    filter: blur(40px);
 
     animation:
         portraitGlow
@@ -421,21 +372,10 @@ p {
 .portrait-frame {
     position: relative;
 
-    width:
-        clamp(
-            105px,
-            min(18vh, 20vw),
-            145px
-        );
+    width: clamp(135px, 15vw, 205px);
+    height: clamp(165px, 18vw, 245px);
 
-    height:
-        clamp(
-            130px,
-            min(22vh, 24vw),
-            175px
-        );
-
-    padding: clamp(3px, 0.4vh, 4px);
+    padding: 4px;
 
     background:
         linear-gradient(
@@ -452,8 +392,8 @@ p {
         15px;
 
     box-shadow:
-        0 20px 50px
-        rgba(0,0,0,0.5);
+        0 25px 70px
+        rgba(0,0,0,0.55);
 
     z-index: 3;
 }
@@ -500,8 +440,8 @@ p {
 }
 
 .orbit-one {
-    width: 89%;
-    height: 89%;
+    width: clamp(190px, 20vw, 285px);
+    height: clamp(190px, 20vw, 285px);
 
     transform:
         rotate(-20deg)
@@ -515,15 +455,14 @@ p {
 }
 
 .orbit-two {
-    width: 98%;
-    height: 98%;
+    width: clamp(210px, 22vw, 310px);
+    height: clamp(210px, 22vw, 310px);
 
     transform:
         rotate(45deg)
         scaleX(0.35);
 
     border-style: dashed;
-
     opacity: 0.5;
 
     animation:
@@ -569,8 +508,8 @@ p {
 .orbit-dot {
     position: absolute;
 
-    width: 6px;
-    height: 6px;
+    width: 7px;
+    height: 7px;
 
     border-radius: 50%;
 
@@ -584,13 +523,13 @@ p {
 }
 
 .dot-one {
-    top: 10%;
-    right: 10%;
+    top: 25px;
+    right: 25px;
 }
 
 .dot-two {
-    bottom: 10%;
-    left: 10%;
+    bottom: 25px;
+    left: 25px;
 }
 
 
@@ -617,26 +556,26 @@ p {
 }
 
 .sparkle-one {
-    top: 11%;
-    left: 7%;
+    top: 25px;
+    left: 15px;
 
-    font-size: clamp(14px, 2vw, 19px);
+    font-size: clamp(17px, 2vw, 28px);
 }
 
 .sparkle-two {
-    right: 3%;
-    top: 39%;
+    right: 8px;
+    top: 90px;
 
-    font-size: clamp(11px, 1.5vw, 14px);
+    font-size: clamp(13px, 1.5vw, 21px);
 
     animation-delay: 0.8s;
 }
 
 .sparkle-three {
-    left: 13%;
-    bottom: 8%;
+    left: 30px;
+    bottom: 18px;
 
-    font-size: clamp(18px, 2.5vw, 25px);
+    font-size: clamp(22px, 2.5vw, 34px);
 
     animation-delay: 1.3s;
 }
@@ -660,6 +599,8 @@ p {
 ========================================================= */
 
 .birthday-text {
+    text-align: center;
+
     animation:
         textAppear
         1s
@@ -671,19 +612,14 @@ p {
 
     opacity: 0;
 
-    flex-shrink: 1;
-
-    text-align: center;
-
-    width: 100%;
+    flex-shrink: 0;
 }
 
 .birthday-label {
-    font-size:
-        clamp(7px, 0.7vw, 9px);
+    font-size: clamp(9px, 0.8vw, 12px);
 
     letter-spacing:
-        clamp(3px, 0.45vw, 6px);
+        clamp(4px, 0.5vw, 7px);
 
     margin-bottom: -4px;
 
@@ -694,15 +630,14 @@ p {
 .birthday-text h1 {
     font-size:
         clamp(
-            38px,
-            min(8vh, 9vw),
-            82px
+            52px,
+            7vw,
+            100px
         );
 
-    line-height: 0.9;
+    line-height: 0.88;
 
-    letter-spacing:
-        clamp(1px, 0.25vw, 2px);
+    letter-spacing: 2px;
 
     font-weight: 700;
 
@@ -722,18 +657,17 @@ p {
 }
 
 .birthday-text h2 {
-    margin-top:
-        clamp(5px, 1vh, 9px);
+    margin-top: clamp(9px, 1vh, 15px);
 
     font-size:
         clamp(
-            14px,
-            min(2.5vh, 3vw),
-            25px
+            18px,
+            2vw,
+            30px
         );
 
     letter-spacing:
-        clamp(2px, 0.4vw, 4px);
+        clamp(3px, 0.4vw, 6px);
 
     font-weight: 400;
 
@@ -750,19 +684,17 @@ p {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
-    gap:
-        clamp(6px, 1.2vw, 12px);
+    gap: 12px;
 
     margin-top:
-        clamp(5px, 1vh, 10px);
+        clamp(9px, 1vh, 14px);
 }
 
 .date-line span {
     width:
-        clamp(18px, 3vw, 28px);
+        clamp(28px, 3vw, 50px);
 
     height: 1px;
 
@@ -772,10 +704,10 @@ p {
 
 .date-line p {
     font-size:
-        clamp(7px, 0.7vw, 8px);
+        clamp(8px, 0.7vw, 11px);
 
     letter-spacing:
-        clamp(2px, 0.25vw, 3px);
+        clamp(2px, 0.3vw, 4px);
 
     color:
         rgba(255,255,255,0.45);
@@ -787,17 +719,16 @@ p {
 ========================================================= */
 
 .birthday-subtitle {
-    width: min(90%, 370px);
+    max-width: 480px;
 
     margin:
-        clamp(5px, 1vh, 10px)
-        auto
-        0;
+        clamp(8px, 1vh, 14px)
+        auto 0;
 
     font-size:
-        clamp(9px, 1.2vh, 11px);
+        clamp(11px, 0.9vw, 14px);
 
-    line-height: 1.4;
+    line-height: 1.5;
 
     color:
         rgba(255,255,255,0.45);
@@ -805,12 +736,12 @@ p {
 
 
 /* =========================================================
-   LANDING BUTTON
+   CELEBRATE BUTTON
 ========================================================= */
 
 .celebrate-btn {
     margin-top:
-        clamp(8px, 1.8vh, 17px);
+        clamp(13px, 1.7vh, 22px);
 
     position: relative;
 
@@ -821,10 +752,8 @@ p {
     gap: 11px;
 
     padding:
-        clamp(8px, 1.5vh, 12px)
-        clamp(11px, 2vw, 17px)
-        clamp(8px, 1.5vh, 12px)
-        clamp(10px, 1.8vw, 14px);
+        clamp(11px, 1vh, 15px)
+        clamp(16px, 1.5vw, 24px);
 
     border:
         1px solid
@@ -843,7 +772,7 @@ p {
     cursor: pointer;
 
     font-size:
-        clamp(9px, 1.2vh, 11px);
+        clamp(11px, 0.9vw, 14px);
 
     transition:
         transform 0.3s ease,
@@ -896,23 +825,22 @@ p {
         transform 0.3s ease;
 }
 
-.celebrate-btn:hover
-.button-arrow {
+.celebrate-btn:hover .button-arrow {
     transform:
         translateX(5px);
 }
 
 
 /* =========================================================
-   LANDING HINT
+   HINT
 ========================================================= */
 
 .bottom-hint {
     margin-top:
-        clamp(4px, 0.8vh, 8px);
+        clamp(6px, 0.8vh, 10px);
 
     font-size:
-        clamp(7px, 0.8vh, 8px);
+        clamp(8px, 0.65vw, 10px);
 
     letter-spacing: 1px;
 
@@ -1025,10 +953,9 @@ p {
 
 .memories-page {
     width: 100%;
-    height: 100vh;
     height: 100svh;
 
-    min-height: 0;
+    min-height: 600px;
 
     background:
         radial-gradient(
@@ -1046,22 +973,22 @@ p {
 
 
 /* =========================================================
-   AMBIENT GLOW
+   MEMORY AMBIENT GLOWS
 ========================================================= */
 
 .ambient {
     position: fixed;
 
     width:
-        clamp(220px, 30vw, 400px);
+        clamp(300px, 30vw, 600px);
 
     height:
-        clamp(220px, 30vw, 400px);
+        clamp(300px, 30vw, 600px);
 
     border-radius: 50%;
 
     filter:
-        blur(clamp(80px, 10vw, 130px));
+        blur(130px);
 
     opacity: 0.18;
 
@@ -1071,15 +998,15 @@ p {
 .ambient-one {
     background: #d36cff;
 
-    top: -150px;
-    left: -150px;
+    top: -180px;
+    left: -180px;
 }
 
 .ambient-two {
     background: #ff8db3;
 
-    bottom: -150px;
-    right: -150px;
+    bottom: -180px;
+    right: -180px;
 }
 
 
@@ -1099,50 +1026,67 @@ p {
     text-align: center;
 
     width:
-        min(90%, 700px);
+        min(80%, 900px);
 
     z-index: 2;
 
     pointer-events: none;
-
-    /*
-       Keep the center away from the bottom button.
-    */
-    max-height: 55svh;
 }
 
 .memory-eyebrow {
     font-size:
-        clamp(7px, 1vw, 10px);
+        clamp(
+            10px,
+            0.85vw,
+            14px
+        );
 
     letter-spacing:
-        clamp(2px, 0.5vw, 5px);
+        clamp(
+            4px,
+            0.6vw,
+            8px
+        );
 
     opacity: 0.45;
 
     margin-bottom:
-        clamp(8px, 1.8vh, 15px);
+        clamp(
+            14px,
+            2vh,
+            24px
+        );
 }
 
 .memory-center h1 {
     font-size:
         clamp(
-            30px,
-            min(7vw, 8vh),
-            70px
+            45px,
+            6vw,
+            90px
         );
 
-    line-height: 1;
+    line-height: 0.95;
 
     margin-bottom:
-        clamp(7px, 1.5vh, 12px);
+        clamp(
+            12px,
+            1.5vh,
+            20px
+        );
+
+    font-weight: 600;
 }
 
 .memory-center p:last-child {
     font-size:
-        clamp(10px, 1.5vw, 13px);
+        clamp(
+            13px,
+            1vw,
+            17px
+        );
 
-    line-height: 1.5;
+    line-height: 1.6;
 
     opacity: 0.4;
 }
@@ -1161,8 +1105,6 @@ p {
     height: 100%;
 
     pointer-events: none;
-
-    overflow: hidden;
 }
 
 
@@ -1173,29 +1115,17 @@ p {
 .memory {
     position: absolute;
 
-    /*
-       Responsive maximum width.
-    */
-    width: clamp(
-        120px,
-        20vw,
-        270px
-    );
-
-    max-width: 32vw;
-    max-height: 48svh;
-
     background: white;
 
     padding:
-        clamp(5px, 0.6vw, 8px);
+        clamp(7px, 0.6vw, 11px);
 
     border-radius:
-        clamp(7px, 1vw, 10px);
+        clamp(9px, 0.7vw, 14px);
 
     box-shadow:
-        0 25px 70px
-        rgba(0,0,0,0.55);
+        0 25px 80px
+        rgba(0,0,0,0.6);
 
     cursor: pointer;
 
@@ -1203,7 +1133,7 @@ p {
 
     z-index: 5;
 
-    animation-duration: 1s;
+    transform-origin: center center;
 
     animation-fill-mode: forwards;
 }
@@ -1214,40 +1144,34 @@ p {
 
     display: block;
 
-    /*
-       Don't allow the media itself to become
-       taller than the viewport.
-    */
     aspect-ratio: 4 / 5;
-
-    max-height:
-        40svh;
 
     object-fit: cover;
 
     border-radius:
-        clamp(4px, 0.6vw, 6px);
+        clamp(5px, 0.4vw, 8px);
+}
+
+.memory video {
+    background: #111;
 }
 
 .memory-label {
     color: #222;
 
     font-size:
-        clamp(7px, 0.8vw, 9px);
+        clamp(
+            9px,
+            0.7vw,
+            12px
+        );
 
     text-align: center;
 
     padding-top:
-        clamp(3px, 0.6vh, 6px);
+        clamp(6px, 0.5vw, 9px);
 
-    padding-bottom:
-        clamp(2px, 0.3vh, 3px);
-
-    white-space: nowrap;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
+    padding-bottom: 3px;
 }
 
 
@@ -1271,6 +1195,10 @@ p {
     animation-iteration-count:
         1,
         infinite;
+
+    animation-timing-function:
+        cubic-bezier(0.16, 1, 0.3, 1),
+        ease-in-out;
 }
 
 .spawn-right {
@@ -1289,6 +1217,10 @@ p {
     animation-iteration-count:
         1,
         infinite;
+
+    animation-timing-function:
+        cubic-bezier(0.16, 1, 0.3, 1),
+        ease-in-out;
 }
 
 .spawn-top {
@@ -1307,6 +1239,10 @@ p {
     animation-iteration-count:
         1,
         infinite;
+
+    animation-timing-function:
+        cubic-bezier(0.16, 1, 0.3, 1),
+        ease-in-out;
 }
 
 .spawn-bottom {
@@ -1325,11 +1261,15 @@ p {
     animation-iteration-count:
         1,
         infinite;
+
+    animation-timing-function:
+        cubic-bezier(0.16, 1, 0.3, 1),
+        ease-in-out;
 }
 
 
 /* =========================================================
-   SPAWN LEFT
+   SPAWN KEYFRAMES
 ========================================================= */
 
 @keyframes spawnLeft {
@@ -1337,9 +1277,9 @@ p {
         opacity: 0;
 
         transform:
-            translateX(-250px)
+            translateX(-400px)
             rotate(-20deg)
-            scale(0.5);
+            scale(0.45);
     }
 
     to {
@@ -1350,20 +1290,15 @@ p {
             scale(1);
     }
 }
-
-
-/* =========================================================
-   SPAWN RIGHT
-========================================================= */
 
 @keyframes spawnRight {
     from {
         opacity: 0;
 
         transform:
-            translateX(250px)
+            translateX(400px)
             rotate(20deg)
-            scale(0.5);
+            scale(0.45);
     }
 
     to {
@@ -1374,20 +1309,15 @@ p {
             scale(1);
     }
 }
-
-
-/* =========================================================
-   SPAWN TOP
-========================================================= */
 
 @keyframes spawnTop {
     from {
         opacity: 0;
 
         transform:
-            translateY(-250px)
+            translateY(-400px)
             rotate(15deg)
-            scale(0.5);
+            scale(0.45);
     }
 
     to {
@@ -1398,20 +1328,15 @@ p {
             scale(1);
     }
 }
-
-
-/* =========================================================
-   SPAWN BOTTOM
-========================================================= */
 
 @keyframes spawnBottom {
     from {
         opacity: 0;
 
         transform:
-            translateY(250px)
+            translateY(400px)
             rotate(-15deg)
-            scale(0.5);
+            scale(0.45);
     }
 
     to {
@@ -1422,11 +1347,6 @@ p {
             scale(1);
     }
 }
-
-
-/* =========================================================
-   FLOATING MEMORY
-========================================================= */
 
 @keyframes floatingMemory {
     0%,
@@ -1435,7 +1355,7 @@ p {
     }
 
     50% {
-        margin-top: -15px;
+        margin-top: -18px;
     }
 }
 
@@ -1447,14 +1367,8 @@ p {
 .continue-btn {
     position: fixed;
 
-    /*
-       Safe-area aware positioning.
-    */
     bottom:
-        max(
-            16px,
-            env(safe-area-inset-bottom)
-        );
+        max(25px, env(safe-area-inset-bottom));
 
     left: 50%;
 
@@ -1464,8 +1378,8 @@ p {
     z-index: 100;
 
     padding:
-        clamp(10px, 1.5vh, 14px)
-        clamp(18px, 3vw, 25px);
+        clamp(12px, 1vw, 16px)
+        clamp(22px, 2vw, 32px);
 
     border:
         1px solid
@@ -1484,9 +1398,7 @@ p {
     cursor: pointer;
 
     font-size:
-        clamp(10px, 1.3vw, 13px);
-
-    white-space: nowrap;
+        clamp(11px, 0.8vw, 14px);
 
     transition: 0.3s;
 }
@@ -1506,16 +1418,142 @@ p {
 
 
 /* =========================================================
+   LIGHTBOX
+========================================================= */
+
+.lightbox {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,0.92);
+
+    backdrop-filter:
+        blur(15px);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding:
+        clamp(15px, 3vw, 40px);
+
+    z-index: 1000;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+#lightboxContent {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+#lightboxContent img,
+#lightboxContent video {
+    width: auto;
+    height: auto;
+
+    max-width: 92vw;
+    max-height: 88vh;
+
+    object-fit: contain;
+
+    border-radius:
+        clamp(8px, 0.8vw, 14px);
+
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,0.7);
+}
+
+.close-lightbox {
+    position: absolute;
+
+    top:
+        max(20px, env(safe-area-inset-top));
+
+    right:
+        max(20px, env(safe-area-inset-right));
+
+    width:
+        clamp(40px, 3vw, 52px);
+
+    height:
+        clamp(40px, 3vw, 52px);
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.1);
+
+    color: white;
+
+    font-size:
+        clamp(24px, 2vw, 32px);
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-btn {
+    position: fixed;
+
+    top:
+        max(20px, env(safe-area-inset-top));
+
+    left:
+        max(20px, env(safe-area-inset-left));
+
+    z-index: 100;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size:
+        clamp(11px, 0.8vw, 14px);
+
+    opacity: 0.5;
+
+    transition: opacity 0.3s ease;
+}
+
+.back-btn:hover {
+    opacity: 1;
+}
+
+
+/* =========================================================
    FINAL PAGE
 ========================================================= */
 
 .final-page {
     width: 100%;
-
-    height: 100vh;
-    height: 100svh;
-
-    min-height: 0;
+    min-height: 100svh;
 
     background:
         radial-gradient(
@@ -1526,13 +1564,9 @@ p {
 
     color: white;
 
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
-
-
-/* =========================================================
-   FINAL BACKGROUND
-========================================================= */
 
 .final-background {
     position: fixed;
@@ -1555,10 +1589,7 @@ p {
 ========================================================= */
 
 .final-content {
-    width: 100%;
-    height: 100svh;
-
-    min-height: 0;
+    min-height: 100svh;
 
     display: flex;
 
@@ -1568,34 +1599,24 @@ p {
 
     align-items: center;
 
-    /*
-       Much smaller responsive padding.
-    */
     padding:
-        clamp(12px, 3vh, 40px)
-        clamp(12px, 4vw, 20px);
+        clamp(35px, 6vh, 70px)
+        20px;
 
     text-align: center;
-
-    overflow: hidden;
 }
-
-
-/* =========================================================
-   FINAL TOP
-========================================================= */
 
 .final-top {
     font-size:
-        clamp(7px, 1vw, 10px);
+        clamp(10px, 0.8vw, 14px);
 
     letter-spacing:
-        clamp(2px, 0.5vw, 6px);
+        clamp(4px, 0.6vw, 8px);
 
     opacity: 0;
 
     margin-bottom:
-        clamp(8px, 2vh, 25px);
+        clamp(20px, 3vh, 35px);
 
     animation:
         finalTextAppear
@@ -1605,32 +1626,22 @@ p {
 
     animation-delay:
         0.5s;
-
-    flex-shrink: 1;
 }
 
 
 /* =========================================================
-   FLYER
+   FINAL FLYER
 ========================================================= */
 
 .flyer-wrapper {
-    /*
-       Width is controlled by BOTH width and height.
-
-       This prevents a tall flyer from being
-       cut off on short screens.
-    */
     width:
         min(
-            90vw,
-            520px,
-            calc(65svh * 0.72)
+            80vw,
+            700px
         );
 
-    max-width: 520px;
-
-    max-height: 68svh;
+    max-height:
+        68svh;
 
     opacity: 0;
 
@@ -1650,28 +1661,28 @@ p {
         )
         forwards;
 
-    animation-delay: 1s;
-
-    flex-shrink: 1;
+    animation-delay:
+        1s;
 }
 
 .flyer-wrapper img {
     width: 100%;
 
+    max-height:
+        68svh;
+
     height: auto;
-
-    max-height: 68svh;
-
-    object-fit: contain;
 
     display: block;
 
+    object-fit: contain;
+
     border-radius:
-        clamp(5px, 1vw, 8px);
+        clamp(7px, 0.7vw, 12px);
 
     box-shadow:
-        0 30px 100px
-        rgba(0,0,0,0.7);
+        0 35px 120px
+        rgba(0,0,0,0.75);
 }
 
 
@@ -1681,9 +1692,9 @@ p {
 
 .final-message {
     margin-top:
-        clamp(8px, 2.5vh, 30px);
+        clamp(20px, 3vh, 35px);
 
-    width: min(90%, 500px);
+    max-width: 600px;
 
     opacity: 0;
 
@@ -1696,30 +1707,30 @@ p {
         ease
         forwards;
 
-    animation-delay: 2.2s;
-
-    flex-shrink: 1;
+    animation-delay:
+        2.2s;
 }
 
 .final-message h1 {
     font-size:
         clamp(
-            21px,
-            min(5vw, 4vh),
-            42px
+            28px,
+            4vw,
+            52px
         );
 
-    line-height: 1.1;
-
-    margin-bottom:
-        clamp(5px, 1vh, 10px);
+    margin-bottom: 10px;
 }
 
 .final-message p {
     font-size:
-        clamp(10px, 1.5vw, 13px);
+        clamp(
+            13px,
+            1vw,
+            16px
+        );
 
-    line-height: 1.5;
+    line-height: 1.7;
 
     opacity: 0.5;
 }
@@ -1730,15 +1741,14 @@ p {
 ========================================================= */
 
 .restart-btn {
-    margin-top:
-        clamp(8px, 2vh, 25px);
+    margin-top: 25px;
 
     color: white;
 
     text-decoration: none;
 
     font-size:
-        clamp(9px, 1.3vw, 12px);
+        clamp(11px, 0.8vw, 14px);
 
     opacity: 0;
 
@@ -1748,7 +1758,8 @@ p {
         ease
         forwards;
 
-    animation-delay: 2.7s;
+    animation-delay:
+        2.7s;
 }
 
 .restart-btn:hover {
@@ -1807,148 +1818,6 @@ p {
 
 
 /* =========================================================
-   LIGHTBOX
-========================================================= */
-
-.lightbox {
-    position: fixed;
-
-    inset: 0;
-
-    background:
-        rgba(0,0,0,0.92);
-
-    backdrop-filter:
-        blur(15px);
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    padding:
-        clamp(12px, 4vw, 25px);
-
-    z-index: 1000;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    transition: 0.3s;
-}
-
-.lightbox.active {
-    opacity: 1;
-
-    visibility: visible;
-}
-
-#lightboxContent {
-    width: 100%;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-}
-
-#lightboxContent img,
-#lightboxContent video {
-    width: auto;
-
-    height: auto;
-
-    max-width: 90vw;
-
-    max-height: 82svh;
-
-    object-fit: contain;
-
-    border-radius:
-        clamp(6px, 1vw, 10px);
-}
-
-.close-lightbox {
-    position: absolute;
-
-    top:
-        max(
-            15px,
-            env(safe-area-inset-top)
-        );
-
-    right:
-        max(
-            15px,
-            env(safe-area-inset-right)
-        );
-
-    width:
-        clamp(38px, 7vw, 45px);
-
-    height:
-        clamp(38px, 7vw, 45px);
-
-    border: none;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255,255,255,0.1);
-
-    color: white;
-
-    font-size:
-        clamp(24px, 5vw, 30px);
-
-    cursor: pointer;
-
-    z-index: 1001;
-}
-
-
-/* =========================================================
-   BACK BUTTON
-========================================================= */
-
-.back-btn {
-    position: fixed;
-
-    top:
-        max(
-            15px,
-            env(safe-area-inset-top)
-        );
-
-    left:
-        max(
-            15px,
-            env(safe-area-inset-left)
-        );
-
-    z-index: 100;
-
-    color: white;
-
-    text-decoration: none;
-
-    font-size:
-        clamp(9px, 1.3vw, 12px);
-
-    opacity: 0.5;
-
-    transition: opacity 0.3s;
-}
-
-.back-btn:hover {
-    opacity: 1;
-}
-
-
-/* =========================================================
    PAGE TRANSITION
 ========================================================= */
 
@@ -1971,313 +1840,128 @@ p {
 
 
 /* =========================================================
-   SMALL PHONES
+   TABLET
 ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
 
-    /* -----------------------------
-       LANDING
-    ----------------------------- */
+    .landing-page,
+    .memories-page {
+        min-height: 560px;
+    }
 
     .landing-content {
         width: 94%;
     }
 
-    .intro-label {
-        margin-bottom: 2px;
-    }
-
-    .portrait-area {
-        width:
-            clamp(
-                150px,
-                27vh,
-                190px
-            );
-
-        height:
-            clamp(
-                150px,
-                27vh,
-                190px
-            );
-    }
-
-    .portrait-frame {
-        width:
-            clamp(
-                105px,
-                18vh,
-                125px
-            );
-
-        height:
-            clamp(
-                130px,
-                22vh,
-                155px
-            );
-    }
-
-    .birthday-text h1 {
-        font-size:
-            clamp(
-                38px,
-                12vw,
-                48px
-            );
-    }
-
-    .birthday-text h2 {
-        font-size:
-            clamp(
-                14px,
-                4.5vw,
-                17px
-            );
-
-        letter-spacing: 3px;
-    }
-
-    .birthday-subtitle {
-        width: 90%;
-
-        font-size: 9px;
-
-        margin-top: 6px;
-    }
-
-    .celebrate-btn {
-        margin-top: 10px;
-
-        padding:
-            9px
-            13px;
-    }
-
-    .bottom-hint {
-        margin-top: 5px;
-    }
-
-
-    /* -----------------------------
-       MEMORIES
-    ----------------------------- */
-
-    .memory {
-        width:
-            clamp(
-                105px,
-                31vw,
-                155px
-            ) !important;
-
-        max-width: 38vw;
-
-        padding: 5px;
-    }
-
-    .memory img,
-    .memory video {
-        max-height: 32svh;
-    }
-
     .memory-center {
-        top: 45%;
-
-        width: 86%;
+        width: 75%;
     }
 
     .memory-center h1 {
-        font-size:
-            clamp(
-                28px,
-                9vw,
-                38px
-            );
-    }
-
-    .memory-eyebrow {
-        letter-spacing: 3px;
-    }
-
-    .memory-center p:last-child {
-        font-size: 10px;
-    }
-
-    .continue-btn {
-        bottom:
-            max(
-                12px,
-                env(safe-area-inset-bottom)
-            );
-    }
-
-
-    /* -----------------------------
-       FINAL
-    ----------------------------- */
-
-    .final-content {
-        padding:
-            15px
-            12px;
-    }
-
-    .final-top {
-        margin-bottom: 10px;
+        font-size: clamp(40px, 7vw, 65px);
     }
 
     .flyer-wrapper {
-        width:
-            min(
-                88vw,
-                calc(65svh * 0.72)
-            );
-
-        max-height: 65svh;
+        width: min(82vw, 580px);
+        max-height: 66svh;
     }
 
     .flyer-wrapper img {
-        max-height: 65svh;
-    }
-
-    .final-message {
-        margin-top: 10px;
-    }
-
-    .final-message h1 {
-        font-size: 27px;
-    }
-
-    .final-message p {
-        font-size: 10px;
-    }
-
-    .restart-btn {
-        margin-top: 10px;
+        max-height: 66svh;
     }
 }
 
 
 /* =========================================================
-   VERY SMALL PHONES
-   Example: 320px - 375px wide
+   PHONE
 ========================================================= */
 
-@media (max-width: 375px) {
+@media (max-width: 600px) {
+
+    .landing-page {
+        min-height: 520px;
+    }
+
+    .landing-content {
+        width: 94%;
+
+        padding:
+            10px
+            0;
+    }
+
+    .intro-label {
+        margin-bottom: 3px;
+    }
 
     .portrait-area {
-        width: 145px;
-        height: 145px;
+        width: 190px;
+        height: 190px;
     }
 
     .portrait-frame {
-        width: 98px;
-        height: 125px;
+        width: 125px;
+        height: 155px;
     }
 
-    .birthday-text h1 {
-        font-size: 35px;
+    .portrait-glow {
+        width: 140px;
+        height: 140px;
     }
 
-    .birthday-text h2 {
-        font-size: 13px;
-        letter-spacing: 2px;
-    }
-
-    .birthday-subtitle {
-        font-size: 8px;
-    }
-
-    .celebrate-btn {
-        font-size: 9px;
-        padding: 8px 11px;
-    }
-
-    .memory {
-        width: 100px !important;
-    }
-
-    .memory-center h1 {
-        font-size: 27px;
-    }
-
-    .memory-center p:last-child {
-        font-size: 9px;
-    }
-
-    .continue-btn {
-        font-size: 9px;
-        padding: 9px 16px;
-    }
-
-    .flyer-wrapper {
-        width: 84vw;
-    }
-}
-
-
-/* =========================================================
-   SHORT LAPTOPS / SHORT SCREENS
-   This is especially important for 1366x600,
-   1280x600, etc.
-========================================================= */
-
-@media (max-height: 700px) and (min-width: 601px) {
-
-    .landing-content {
-        padding:
-            5px 0;
-    }
-
-    .portrait-area {
+    .orbit-one {
         width: 170px;
         height: 170px;
     }
 
-    .portrait-frame {
-        width: 108px;
-        height: 135px;
+    .orbit-two {
+        width: 185px;
+        height: 185px;
     }
 
     .birthday-text h1 {
-        font-size: 52px;
+        font-size: 48px;
     }
 
     .birthday-text h2 {
         font-size: 17px;
+        letter-spacing: 3px;
     }
 
     .birthday-subtitle {
-        margin-top: 5px;
-        font-size: 9px;
+        max-width: 290px;
+        font-size: 10px;
+        margin-top: 7px;
     }
 
     .celebrate-btn {
-        margin-top: 8px;
-        padding: 8px 13px;
+        margin-top: 13px;
+
+        padding:
+            10px
+            15px;
     }
 
     .bottom-hint {
-        margin-top: 4px;
+        margin-top: 6px;
     }
 
 
-    /* Memories */
+    /* MEMORY PHONE */
 
-    .memory {
-        max-height: 42svh;
-    }
-
-    .memory img,
-    .memory video {
-        max-height: 34svh;
+    .memory-center {
+        top: 44%;
+        width: 82%;
     }
 
     .memory-center h1 {
-        font-size: 45px;
+        font-size: 35px;
+    }
+
+    .memory-eyebrow {
+        font-size: 8px;
+        letter-spacing: 3px;
     }
 
     .memory-center p:last-child {
@@ -2285,33 +1969,27 @@ p {
     }
 
     .continue-btn {
-        bottom: 12px;
-        padding: 10px 20px;
+        bottom: 18px;
     }
 
 
-    /* Final */
+    /* FINAL PHONE */
 
-    .final-top {
-        margin-bottom: 8px;
+    .final-content {
+        padding:
+            45px
+            15px
+            30px;
     }
 
     .flyer-wrapper {
-        width:
-            min(
-                420px,
-                calc(57svh * 0.72)
-            );
+        width: 88vw;
 
-        max-height: 57svh;
+        max-height: 60svh;
     }
 
     .flyer-wrapper img {
-        max-height: 57svh;
-    }
-
-    .final-message {
-        margin-top: 8px;
+        max-height: 60svh;
     }
 
     .final-message h1 {
@@ -2319,190 +1997,134 @@ p {
     }
 
     .final-message p {
-        font-size: 10px;
-    }
-
-    .restart-btn {
-        margin-top: 8px;
+        font-size: 12px;
     }
 }
 
 
 /* =========================================================
-   VERY SHORT SCREENS
-   Example: phones in landscape
+   SHORT SCREENS
 ========================================================= */
 
-@media (max-height: 500px) {
+@media (max-height: 700px) and (min-width: 601px) {
 
     .landing-content {
-        padding: 3px 0;
-    }
-
-    .intro-label {
-        font-size: 6px;
-        margin-bottom: 1px;
+        padding:
+            8px
+            0;
     }
 
     .portrait-area {
-        width: 105px;
-        height: 105px;
+        width: 190px;
+        height: 190px;
     }
 
     .portrait-frame {
-        width: 68px;
-        height: 88px;
+        width: 125px;
+        height: 150px;
+    }
+
+    .portrait-glow {
+        width: 140px;
+        height: 140px;
     }
 
     .birthday-text h1 {
-        font-size: 31px;
+        font-size: 58px;
     }
 
     .birthday-text h2 {
-        font-size: 12px;
-        margin-top: 4px;
-    }
-
-    .date-line {
-        margin-top: 4px;
+        font-size: 18px;
     }
 
     .birthday-subtitle {
-        display: none;
+        font-size: 10px;
+        margin-top: 6px;
     }
 
     .celebrate-btn {
-        margin-top: 5px;
-        padding: 6px 10px;
-        font-size: 8px;
+        margin-top: 10px;
     }
 
     .bottom-hint {
-        display: none;
-    }
-
-
-    /* Memories */
-
-    .memory {
-        width: 100px !important;
-    }
-
-    .memory img,
-    .memory video {
-        max-height: 28svh;
-    }
-
-    .memory-center {
-        top: 43%;
+        margin-top: 4px;
     }
 
     .memory-center h1 {
-        font-size: 30px;
+        font-size: 50px;
     }
 
     .memory-center p:last-child {
-        display: none;
-    }
-
-    .continue-btn {
-        bottom: 8px;
-        padding: 7px 15px;
-    }
-
-
-    /* Final */
-
-    .final-top {
-        font-size: 6px;
-        margin-bottom: 4px;
+        font-size: 11px;
     }
 
     .flyer-wrapper {
-        width:
-            min(
-                260px,
-                calc(50svh * 0.72)
-            );
-
-        max-height: 50svh;
+        max-height: 60svh;
     }
 
     .flyer-wrapper img {
-        max-height: 50svh;
-    }
-
-    .final-message {
-        margin-top: 5px;
-    }
-
-    .final-message h1 {
-        font-size: 20px;
-    }
-
-    .final-message p {
-        font-size: 8px;
-        line-height: 1.3;
-    }
-
-    .restart-btn {
-        margin-top: 5px;
-        font-size: 8px;
+        max-height: 60svh;
     }
 }
 
 
 /* =========================================================
-   LANDSCAPE PHONES
+   VERY SHORT PHONES
 ========================================================= */
 
-@media (orientation: landscape) and (max-height: 600px) {
+@media (max-height: 650px) and (max-width: 600px) {
 
-    .memory {
-        width: 105px !important;
+    .landing-content {
+        transform:
+            scale(0.88);
     }
 
-    .memory-center h1 {
-        font-size: 32px;
-    }
-
-    .memory-center p:last-child {
-        display: none;
-    }
-
-    .continue-btn {
-        bottom: 8px;
+    .memory-center {
+        transform:
+            translate(-50%, -50%)
+            scale(0.88);
     }
 
     .flyer-wrapper {
-        width: min(45vw, 300px);
+        max-height: 52svh;
+    }
+
+    .flyer-wrapper img {
+        max-height: 52svh;
     }
 }
 
 
 /* =========================================================
-   LARGE SCREENS
+   LARGE DESKTOP
 ========================================================= */
 
-@media (min-width: 1600px) {
+@media (min-width: 1400px) {
 
-    .landing-content {
-        width: min(90%, 700px);
-    }
-
-    .memory {
-        max-width: 270px;
+    .memory-center {
+        width: 70%;
     }
 
     .memory-center h1 {
-        font-size: 70px;
+        font-size: 92px;
+    }
+
+    .memory-center p:last-child {
+        font-size: 17px;
+    }
+
+    .continue-btn {
+        font-size: 14px;
+    }
+
+    .flyer-wrapper {
+        width: min(65vw, 760px);
     }
 }
 
 
 /* =========================================================
-   REDUCED MOTION
-   Accessibility + lower-powered devices
+   REDUCE MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
