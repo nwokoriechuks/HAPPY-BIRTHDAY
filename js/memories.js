@@ -60,23 +60,22 @@ function getMemoryWidth() {
 
     /* Phone */
     if (screenWidth <= 600) {
-        return random(135, 170);
+        return random(80, 100);
     }
 
     /* Tablet */
     if (screenWidth <= 900) {
-        return random(210, 280);
+        return random(120, 150);
     }
 
-    /* Normal laptop / desktop */
+    /* Laptop */
     if (screenWidth <= 1400) {
-        return random(280, 350);
+        return random(150, 200);
     }
 
     /* Large desktop */
-    return random(320, 390);
+    return random(200, 250);
 }
-
 
 /* =========================================================
    CREATE MEMORY
